@@ -1,0 +1,14 @@
+{
+  "heading": "Ready to Get Started?",
+  "description": "Book a consultation with our experts and take the first step towards resolving your tax and legal challenges.",
+  "buttons": [
+    {
+      "label": "Book a Consultation",
+      "type": "primary"
+    },
+    {
+      "label": "Learn More About Our Services",
+      "type": "secondary"
+    }
+  ]
+}

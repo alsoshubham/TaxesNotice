@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "Calculator",
+    "title": "Tax Planning & Preparation",
+    "description": "Strategic tax planning and accurate filing for individuals and businesses to minimize liability and ensure compliance."
+  },
+  {
+    "icon": "FileText",
+    "title": "Legal Documentation",
+    "description": "Professional preparation and review of legal documents including contracts, agreements, and corporate filings."
+  },
+  {
+    "icon": "Building",
+    "title": "Company Registration",
+    "description": "Complete assistance with company formation, registration, and statutory compliance for startups and new entities."
+  }
+]
