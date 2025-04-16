@@ -1,5 +1,4 @@
 import React from 'react';
-import './ServiceCard.css'; // Optional: Add styles in a separate CSS file
 
 const ServiceCard = ({ title, description, icon }) => {
     return (

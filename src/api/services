@@ -1,17 +1,38 @@
 [
   {
-    "icon": "Calculator",
-    "title": "Tax Planning & Preparation",
-    "description": "Strategic tax planning and accurate filing for individuals and businesses to minimize liability and ensure compliance."
+    "icon": "tax-icon.png",
+    "title": "Tax Filing & Advisory",
+    "description":
+      "Strategic tax planning and accurate filing for individuals and businesses to minimize liability and ensure compliance."
   },
   {
-    "icon": "FileText",
-    "title": "Legal Documentation",
-    "description": "Professional preparation and review of legal documents including contracts, agreements, and corporate filings."
-  },
-  {
-    "icon": "Building",
+    "icon": "company-icon.png",
     "title": "Company Registration",
-    "description": "Complete assistance with company formation, registration, and statutory compliance for startups and new entities."
+    "description":
+      "Complete assistance with company formation, registration, and statutory compliance for startups and new entities."
+  },
+  {
+    "icon": "legal-icon.png",
+    "title": "Legal Documentation",
+    "description":
+      "Professional preparation and review of legal documents including contracts, agreements, and corporate filings."
+  },
+  {
+    "icon": "business-icon.png",
+    "title": "Business Planning & Advisory",
+    "description":
+      "Comprehensive business advisory services including strategy development, market analysis, and operational planning."
+  },
+  {
+    "icon": "compliance-icon.png",
+    "title": "Compliance Services",
+    "description":
+      "Ensuring your business meets all legal obligations and regulatory requirements across multiple jurisdictions."
+  },
+  {
+    "icon": "audit-icon.png",
+    "title": "Tax Advisory & Audit Support",
+    "description":
+      "Expert guidance on tax matters and support during audits to ensure compliance and minimize risks."
   }
 ]

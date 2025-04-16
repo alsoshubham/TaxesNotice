@@ -1,7 +1,5 @@
-import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import Statistics from './Statistics';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,9 +54,6 @@ const HeroSection = () => {
               Explore Services <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
-
-          {/* Reusable Statistics Component */}
-          <Statistics />
         </div>
       </div>
     </div>

@@ -85,10 +85,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#f8f8f8] py-20">
+    <section id="contact" className="bg-[#f8f8f8] py-20 px-4">
       <div className="section-container">
         <div className="mb-16 text-center">
-          <h2 className="section-title font-serif text-[#0D0D0D] font-medium text-4xl">
+          <h2 className="text-4xl font-bold text-center text-blue-600">
             Contact Us
           </h2>
           <p className="section-description text-[#737373] mt-4 max-w-2xl mx-auto text-2xl">
