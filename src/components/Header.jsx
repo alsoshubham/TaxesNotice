@@ -25,33 +25,33 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background shadow-md py-4' : 'bg-transparent py-6'
+      className={`fixed bg-gradient-to-r from-blue-400 to-indigo-500 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-gray-800 shadow-lg py-3' : 'bg-blue-400 py-5'
       }`}
     >
-      <div className="container flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-primary">
+      <div className="container mx-auto flex items-center justify-between px-4">
+        <Link to="/" className="text-3xl font-extrabold text-yellow-400">
           TaxesNotice
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-blue-500 hover:text-blue-700 transition-colors">
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link to="/" className="text-gray-300 hover:text-yellow-400 transition-colors">
             Home
           </Link>
-          <Link to="/services" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/services" className="text-gray-300 hover:text-yellow-400 transition-colors">
             Services
           </Link>
-          <Link to="/about" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/about" className="text-gray-300 hover:text-yellow-400 transition-colors">
             About
           </Link>
-          <Link to="/Testimonial" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/Testimonial" className="text-gray-300 hover:text-yellow-400 transition-colors">
             Testimonial
           </Link>
-          <Link to="/Faq" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/Faq" className="text-gray-300 hover:text-yellow-400 transition-colors">
             FAQ
           </Link>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
+          <button className="bg-blue-500 text-gray-800 px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
             Book Consultations
           </button>
         </nav>
@@ -60,7 +60,7 @@ export default function Header() {
         <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-text-secondary focus:outline-none"
+            className="text-gray-300 focus:outline-none"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <svg
@@ -83,45 +83,45 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background shadow-md">
+        <div className="md:hidden bg-gray-800 shadow-lg">
           <nav className="flex flex-col items-center space-y-4 py-4">
             <Link
               to="#home"
-              className="text-blue-500 hover:text-blue-700 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               to="#services"
-              className="text-blue-500 hover:text-blue-700 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               to="#about"
-              className="text-blue-500 hover:text-blue-700 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
               to="#Testimonial"
-              className="text-blue-500 hover:text-blue-700 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonial
             </Link>
             <Link
               to="#Faq"
-              className="text-blue-500 hover:text-blue-700 transition-colors"
+              className="text-gray-300 hover:text-yellow-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </Link>
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+              className="bg-blue-500 text-gray-800 px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Book Consultations

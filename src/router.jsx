@@ -6,6 +6,7 @@ import FAQ from "./components/FAQSection";
 import Contact from "./components/Contact";
 import PrivacyPolicy from "./policies/PrivacyPolicy";
 import TermsOfServices from "./policies/TermsOfServices";
+import HeroSection from "./components/HeroSection";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
+      {
+        path: "/",
+        element: <HeroSection />,
+      },
       {
         path: "/about",
         element: <About />,

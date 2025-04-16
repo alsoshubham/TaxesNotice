@@ -1,6 +1,22 @@
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import About from './AboutSection';
+import Services from './ServiceSection';
+import Testimonials from './TestimonialSection';
+import FAQ from './FAQSection';
+import Contact from './Contact';
 
+const Home = () => {
+  return(
+    <>
+      <About/>
+      <Services/>
+      <Testimonials/>
+      <FAQ/>
+      <Contact/>
+    </>
+  )
+}
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -35,7 +51,7 @@ const HeroSection = () => {
     >
       <div className="container mx-auto px-4 py-20 md:py-32 lg:py-40">
         <div
-          className={`max-w-4xl mx-auto text-center transition-opacity duration-1000 ${
+          className={`max-w-full mx-auto text-center transition-opacity duration-1000 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -47,13 +63,14 @@ const HeroSection = () => {
             consultancy services for individuals and businesses.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="gradient-cta px-8 py-6 text-base">
+            <button className="gradient-cta px-8 py-6 text-base">
               Book a Consultation
-            </Button>
-            <Button className="outline-button px-8 py-6 text-base outline">
+            </button>
+            <button className="outline-button px-8 py-6 text-base outline">
               Explore Services <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            </button>
           </div>
+          <Home/>
         </div>
       </div>
     </div>

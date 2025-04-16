@@ -99,8 +99,8 @@ const FAQSection = () => {
                 onClick={() => toggleAccordion(index)}
                 className={`w-full text-left px-6 py-5 font-medium flex justify-between items-center transition-colors ${
                   activeIndex === index
-                    ? 'bg-blue-50 text-blue-800'
-                    : 'bg-white text-gray-700 hover:bg-blue-50'
+                    ? 'bg-blue-400 text-white'
+                    : 'bg-blue-400 text-white'
                 }`}
                 aria-expanded={activeIndex === index}
               >
@@ -124,7 +124,7 @@ const FAQSection = () => {
                   
                   {/* CTA Button for each FAQ */}
                   <div className="mt-4 pl-10">
-                    <button className="px-4 py-2 text-sm font-medium text-blue-700 hover:text-blue-800 hover:underline focus:outline-none flex items-center">
+                    <button className="px-4 py-2 text-sm font-medium text-blue-400 hover:text-blue-800 hover:underline focus:outline-none flex items-center">
                       Learn more about this service
                       <svg
                         className="ml-1 w-4 h-4"
@@ -150,7 +150,7 @@ const FAQSection = () => {
 
         {/* Additional Help Section */}
         <div className="mt-16 text-center">
-          <div className="p-8 bg-blue-600 text-white rounded-lg max-w-3xl mx-auto shadow-lg">
+          <div className="p-8 bg-blue-400 text-white rounded-lg max-w-3xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
             <p className="mb-6">
               Our tax and legal experts are ready to provide personalized assistance with your specific needs.
