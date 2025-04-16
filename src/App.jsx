@@ -1,4 +1,4 @@
-import router from "./router";
+import router from "./router.jsx"; // Importing the router from router.jsx
 import { RouterProvider } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 function App() {

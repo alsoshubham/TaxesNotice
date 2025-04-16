@@ -1,22 +1,18 @@
 import About from "./components/AboutSection";
 import Layout from "./Layout";
-import Services from "./components/ServicesSection";
-import Testimonials from "./components/TestimonialsSection";
+import Services from "./components/ServiceSection";
+import Testimonials from "./components/TestimonialSection";
 import FAQ from "./components/FAQSection";  
-import Contact from "./components/ContactSection";
+import Contact from "./components/Contact";
 import PrivacyPolicy from "./policies/PrivacyPolicy";
 import TermsOfServices from "./policies/TermsOfServices";
 import { createBrowserRouter } from "react-router-dom";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
       {
         path: "/about",
         element: <About />,
@@ -45,11 +41,11 @@ const router = createBrowserRouter([
         path: "/policies",
         children: [
           {
-            path: "/privacy",
+            path: "/policies/privacy",
             element: <PrivacyPolicy/>,
           },
           {
-            path: "/termsOfService",
+            path: "/policies/termsOfService",
             element: <TermsOfServices/>,
           }
         ]

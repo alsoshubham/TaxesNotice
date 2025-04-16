@@ -36,19 +36,19 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="#home" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/" className="text-blue-500 hover:text-blue-700 transition-colors">
             Home
           </Link>
-          <Link to="#services" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/services" className="text-blue-500 hover:text-blue-700 transition-colors">
             Services
           </Link>
-          <Link to="#about" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/about" className="text-blue-500 hover:text-blue-700 transition-colors">
             About
           </Link>
-          <Link to="#Testimonial" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/Testimonial" className="text-blue-500 hover:text-blue-700 transition-colors">
             Testimonial
           </Link>
-          <Link to="#Faq" className="text-blue-500 hover:text-blue-700 transition-colors">
+          <Link to="/Faq" className="text-blue-500 hover:text-blue-700 transition-colors">
             FAQ
           </Link>
           <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
@@ -78,16 +78,6 @@ export default function Header() {
               ></path>
             </svg>
           </button>
-        </div>
-
-        {/* Call-to-Action Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <Link to="/login" className="btn-secondary">
-            Login
-          </Link>
-          <Link to="/get-started" className="btn-primary">
-            Get Started
-          </Link>
         </div>
       </div>
 

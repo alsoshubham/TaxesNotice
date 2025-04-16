@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div>
             <h3 className="text-2xl font-bold mb-4" aria-label="TaxNation Logo">
-              TaxNation
+              TaxesNotice
             </h3>
             <p className="text-gray-300 leading-relaxed">
               Expert tax and legal services for individuals and businesses. Your trusted partner in compliance and growth.

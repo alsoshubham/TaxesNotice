@@ -10,7 +10,6 @@ export default function About() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
           <div className="lg:w-1/2">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              <FaCheckCircle className="inline-block text-blue-600 mr-2" />
               TaxesNotice is a premier tax and legal consultancy dedicated to
               providing comprehensive solutions to individuals and businesses.
               With our team of experienced professionals, we navigate the
@@ -18,7 +17,6 @@ export default function About() {
               clients achieve peace of mind and compliance.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              <FaCheckCircle className="inline-block text-blue-600 mr-2" />
               Our approach combines technical expertise with a deep
               understanding of various industries, allowing us to deliver
               tailored advice that addresses your specific challenges and
