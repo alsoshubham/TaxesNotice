@@ -1,10 +1,151 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      TaxesNotice - Trusted CA Services, Online Tax Filing & Legal Tax
+      Consultation in India
+    </title>
+    <meta
+      name="description"
+      content="Login to File Income Tax Returns (ITR) for FY 2024-25 (AY 2025-26) online with TaxesNotice. TaxesNotice is fast, safe and easy for ITR E-Filing. TaxesNotice handles all cases of Income from Salary, Interest Income, Capital Gains, House Property, Business and Profession. Maximize your deductions by handling all deductions under Section 80 &amp; the rest. Trusted by hundreds of CAs and corporations for filing taxes and TDS."
+    />
+    <meta
+      name="keywords"
+      content="efiling tax, income efiling, income tax efiling, efile taxes india, efiling india, india tax efiling, income tax filing TaxesNotice, TaxesNotice itr filing, TaxesNotice itr efiling, itr filing fy 2024-25, income tax filing fy 2024-25, income tax login"
+    />
+    <meta name="author" content="TaxesNotice" />
+    <meta name="copyright" content="TaxesNotice" />
+
+    <!-- Open Graph / Facebook -->
+    <meta
+      property="og:title"
+      content="TaxesNotice - Expert Tax Filing & Legal Consultation Services"
+    />
+    <meta
+      property="og:description"
+      content="Get expert help with ITR filing, GST, tax planning, and compliance. TaxesNotice offers trusted CA and legal advisory services for individuals, freelancers, startups, and businesses across India."
+    />
+    <meta
+      property="og:image"
+      content="https://taxesnotice.com/taxesnotice-og.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="TaxesNotice - CA & Tax Experts Logo"
+    />
+    <meta property="og:url" content="https://taxesnotice.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TaxesNotice" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TaxesNotice" />
+    <meta
+      name="twitter:title"
+      content="Income Tax Login | Income Tax efiling in India | TaxesNotice ITR Filing"
+    />
+    <meta
+      name="twitter:description"
+      content="Login to File Income Tax Returns (ITR) for FY 2024-25 (AY 2025-26) online with TaxesNotice. TaxesNotice is fast, safe and easy for ITR E-Filing. TaxesNotice handles all cases of Income from Salary, Interest Income, Capital Gains, House Property, Business and Profession. Maximize your deductions by handling all deductions under Section 80 &amp; the rest. Trusted by hundreds of CAs and corporations for filing taxes and TDS."
+    />
+    <meta
+      name="twitter:image"
+      content="https://taxesnotice.com/taxesnotice-og.jpg"
+    />
+    <meta name="twitter:domain" content="http://TaxesNotice.com" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://taxesnotice.com" />
+
+    <!-- Structured Data (JSON-LD for Google Rich Results) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TaxesNotice",
+        "url": "https://taxesnotice.com",
+        "logo": "https://taxesnotice.com/taxesnotice-logo.jpg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-XXXXXXXXXX",
+          "contactType": "Customer Service",
+          "areaServed": "IN"
+        },
+        "sameAs": [
+          "https://www.facebook.com/taxesnotice",
+          "https://www.linkedin.com/company/taxesnotice",
+          "https://twitter.com/taxesnotice"
+        ]
+      }
+    </script>
+    <!-- Google Analytics 4 Script for TaxesNotice -->
+    <script>
+      var gaTaxesNotice = {};
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Base GA4 Configurations for TaxesNotice
+      gaTaxesNotice.config = ["G-XXXXXXXXXX"]; // Replace with your GA4 Measurement ID(s)
+      gaTaxesNotice.groups = ["main_website"]; // Logical group names for your setup
+
+      // Additional optional properties for advanced tracking (add if needed)
+      // gaTaxesNotice.config.push('G-SECONDARY-ID');
+      // gaTaxesNotice.groups.push('secondary_group');
+
+      const { config, groups } = gaTaxesNotice;
+
+      for (var i = 0; i < config.length; i++) {
+        var script = document.createElement("script");
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${config[i]}`;
+        script.defer = true;
+        document.head.appendChild(script);
+
+        gtag("config", config[i], {
+          groups: groups[i],
+          content_group: "homepage_v1", // Customize this per page type
+        });
+      }
+
+      const path = window.location.pathname;
+
+      // Optional function to fetch UTM parameters
+      function getUTMParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+          utm_source: urlParams.get("utm_source") || "",
+          utm_medium: urlParams.get("utm_medium") || "",
+          utm_campaign: urlParams.get("utm_campaign") || "",
+          utm_term: urlParams.get("utm_term") || "",
+          utm_content: urlParams.get("utm_content") || "",
+        };
+      }
+
+      gtag("event", "pageview", {
+        page_title: document.title,
+        current_page_pathname: path.endsWith("/")
+          ? path.slice(0, path.length - 1)
+          : path,
+        parent_category: "tax-consultation",
+        sub_category: "homepage",
+        ...getUTMParameters(),
+        send_to: gaTaxesNotice.groups,
+      });
+    </script>
+    <!-- End Google Analytics 4 Script for TaxesNotice -->
+
+    <title>TaxesNotice</title>
   </head>
   <body>
     <div id="root"></div>

@@ -5,13 +5,13 @@ export default function About() {
     <section className="about-section bg-gray-50 py-16">
       <div className="container mx-auto px-6 lg:px-20">
         <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
-          About TaxesNotion
+          About TaxesNotice
         </h2>
         <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
           <div className="lg:w-1/2">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
               <FaCheckCircle className="inline-block text-blue-600 mr-2" />
-              TaxesNotion is a premier tax and legal consultancy dedicated to
+              TaxesNotice is a premier tax and legal consultancy dedicated to
               providing comprehensive solutions to individuals and businesses.
               With our team of experienced professionals, we navigate the
               complex landscape of taxation and legal requirements, ensuring our
