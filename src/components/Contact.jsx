@@ -85,7 +85,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#f8f8f8] py-20 px-4">
+    <section id="contact" className="bg-[#ffffff] rounded-lg py-20 px-4">
       <div className="section-container">
         <div className="mb-16 text-center">
           <h2 className="text-4xl font-bold text-center text-blue-600">
@@ -190,7 +190,7 @@ const ContactSection = () => {
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-primary px-5 py-3 text-center text-14px font-medium bg-black text-white transition-colors hover:bg-primary/90"
+              className="w-full rounded-lg bg-primary px-5 py-3 text-center text-14px font-medium bg-[#002d72] text-white transition-colors hover:bg-primary/90"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
@@ -211,14 +211,14 @@ const ContactSection = () => {
             <div className="text-start space-y-6">
               <div className="flex items-start">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[#0D0D0D] bg-[#E1E1E1] opacity 10.0% text-20px">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <MapPin className="h-5 w-5 text-primary text-[#cdaa6d]" />
                 </div>
                 <div className="ml-4">
                   <h4 className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
                     Our Location
                   </h4>
                   <p className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    H.No. 8 1ST Flr, Pvt 101, 102, Blk-C, Ranjit Nagar, Patel
+                    H.no. 8 1st Floor, Pvt 101, 102, Blk-C, Ranjit Nagar, Patel
                     Nagar West, Delhi
                     <br />
                     New Delhi, Central Delhi- 110008
@@ -228,7 +228,7 @@ const ContactSection = () => {
 
               <div className="flex items-start">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[#0D0D0D] bg-[#E1E1E1] opacity 10.0% text-20px">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <Mail className="h-5 w-5 text-primary text-[#cdaa6d]" />
                 </div>
                 <div className="ml-4">
                   <h4 className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
@@ -244,7 +244,7 @@ const ContactSection = () => {
 
               <div className="flex items-start">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[#0D0D0D] bg-[#E1E1E1] opacity 10.0% text-20px">
-                  <Phone className="h-5 w-5 text-primary" />
+                  <Phone className="h-5 w-5 text-primary text-[#cdaa6d]" />
                 </div>
                 <div className="ml-4">
                   <h4 className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">

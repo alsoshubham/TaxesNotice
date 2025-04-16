@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import About from './AboutSection';
 import Services from './ServiceSection';
 import Testimonials from './TestimonialSection';
@@ -9,17 +10,18 @@ import Contact from './Contact';
 const Home = () => {
   return(
     <>
-      <About/>
       <Services/>
-      <Testimonials/>
-      <FAQ/>
+      <About/>
       <Contact/>
+      <FAQ/>
+      <Testimonials/>
     </>
   )
 }
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,7 +57,7 @@ const HeroSection = () => {
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-mer lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Expert Tax & Legal Solutions for Your Peace of Mind
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -63,10 +65,16 @@ const HeroSection = () => {
             consultancy services for individuals and businesses.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="gradient-cta px-8 py-6 text-base">
+            <button
+              className="gradient-cta px-8 py-6 text-base"
+              onClick={() => navigate('/contact')}
+            >
               Book a Consultation
             </button>
-            <button className="outline-button px-8 py-6 text-base outline">
+            <button
+              className="outline-button px-8 py-6 text-base outline"
+              onClick={() => navigate('/services')}
+            >
               Explore Services <ArrowRight className="ml-2 h-4 w-4" />
             </button>
           </div>

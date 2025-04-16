@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { SiMedium } from "react-icons/si";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 bg-gradient-to-r from-blue-400 to-indigo-500 text-white">
+    <footer className="py-12 bg-[#002D72] text-white">
       <div className="container mx-auto px-4">
         {/* Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -14,7 +16,8 @@ const Footer = () => {
               TaxesNotice
             </h3>
             <p className="text-white leading-relaxed">
-              Expert tax and legal services for individuals and businesses. Your trusted partner in compliance and growth.
+              Expert tax and legal services for individuals and businesses. Your
+              trusted partner in compliance and growth.
             </p>
           </div>
 
@@ -106,41 +109,66 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <address className="not-italic space-y-2 text-white">
-              <p>📞 +91 (555) 123-4567</p>
-              <p>📧 info@taxnation.com</p>
-              <p>
-                📍 123 Business Ave, Suite 100
-                <br />
-                New Delhi, Delhi, India
-              </p>
-            </address>
+            <h5 className="text-start font-semibold mb-4">Location</h5>
+            <ul classname="text-start space-y-2">
+              <li>
+                <p className="text-start text-gray-400">
+                  {" "}
+                  H.No. 8 1st Flr, Pvt 101, 102, Blk-C, Ranjit Nagar, Patel
+                  Nagar West, New Delhi, Central Delhi- 110008
+                </p>
+              </li>
+            </ul>
           </div>
-        </div>
+          <div>
+            <h5 className=" text-start font-semibold mb-4">Follow Us</h5>
+            <div className="flex space-x-4">
+              <Link to="#" className="text-gray-400 hover:text-white">
+                <FaFacebook size={24} />
+              </Link>
+              <Link to="#" className="text-gray-400 hover:text-white">
+                <FaTwitter size={24} />
+              </Link>
+              <Link to="#" className="text-gray-400 hover:text-white">
+                <FaInstagram size={24} />
+              </Link>
+              <Link
+                to="https://medium.com/@taxesnotice"
+                className="text-gray-400 hover:text-white"
+              >
+                <SiMedium size={24} />
+              </Link>
+            </div>
+          </div>
 
-        {/* Footer Bottom */}
-        <div className="mt-12 pt-8 border-t border-gray-600">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white">
-              © {currentYear} <span className="font-semibold">TaxNation</span>. All rights reserved.
-            </p>
-            <nav className="flex space-x-6 mt-4 md:mt-0" aria-label="Footer Navigation">
-              <Link
-                to="/privacy"
-                aria-label="Privacy Policy"
-                className="text-white hover:text-white transition-colors"
+          {/* Footer Bottom */}
+          <div className="mt-12 pt-8 border-t border-gray-600">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-white">
+                © {currentYear}{" "}
+                <span className="font-semibold">TaxesNotice</span>. All rights
+                reserved.
+              </p>
+              <nav
+                className="flex space-x-6 mt-4 md:mt-0"
+                aria-label="Footer Navigation"
               >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
-                aria-label="Terms of Service"
-                className="text-white hover:text-white transition-colors"
-              >
-                Terms of Service
-              </Link>
-            </nav>
+                <Link
+                  to="/privacy"
+                  aria-label="Privacy Policy"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  to="/terms"
+                  aria-label="Terms of Service"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </nav>
+            </div>
           </div>
         </div>
       </div>

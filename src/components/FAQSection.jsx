@@ -66,15 +66,15 @@ const FAQSection = () => {
     <section
       id="faq"
       ref={sectionRef}
-      className={`py-20 bg-gradient-to-b from-blue-50 to-white transition-all duration-1000 ${
+      className={`py-20 max-w-screen bg-[#ffffff] transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-block p-2 bg-blue-100 rounded-lg mb-4">
-            <Shield className="w-8 h-8 text-blue-600" />
+          <div className="inline-block p-2 bg-[#f0f0f0] rounded-lg mb-4">
+            <Shield className="w-8 h-8 text-[#cdaa6d]" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
             Frequently Asked Questions
@@ -99,13 +99,13 @@ const FAQSection = () => {
                 onClick={() => toggleAccordion(index)}
                 className={`w-full text-left px-6 py-5 font-medium flex justify-between items-center transition-colors ${
                   activeIndex === index
-                    ? 'bg-blue-400 text-white'
-                    : 'bg-blue-400 text-white'
+                    ? 'bg-[#f0f0f0] text-[#333333]'
+                    : 'bg-[#f0f0f0] text-[#333333]'
                 }`}
                 aria-expanded={activeIndex === index}
               >
                 <span className="flex items-center">
-                  <span className="mr-4 text-blue-600">{faq.icon}</span>
+                  <span className="mr-4 text-[#cdaa6d]">{faq.icon}</span>
                   {faq.question}
                 </span>
                 <ChevronDown
@@ -150,12 +150,12 @@ const FAQSection = () => {
 
         {/* Additional Help Section */}
         <div className="mt-16 text-center">
-          <div className="p-8 bg-blue-400 text-white rounded-lg max-w-3xl mx-auto shadow-lg">
+          <div className="p-8 bg-[#f0f0f0] text-black rounded-lg max-w-3xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
             <p className="mb-6">
               Our tax and legal experts are ready to provide personalized assistance with your specific needs.
             </p>
-            <button className="bg-white text-blue-600 hover:bg-blue-50 font-medium px-6 py-3 rounded-md transition-colors duration-300 shadow-md">
+            <button className="bg-[#002d72] text-white font-medium px-6 py-3 rounded-md transition-colors duration-300 shadow-md">
               Schedule a Consultation
             </button>
           </div>
