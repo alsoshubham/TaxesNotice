@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
@@ -51,7 +52,10 @@ export default function Header() {
           <Link to="/Faq" className="text-gray-300 hover:text-white transition-colors">
             FAQ
           </Link>
-          <button className="bg-[#002d72] text-white px-5 py-2 rounded-lg hover:bg-indigo-500 transition-colors">
+          <button 
+          className="bg-[#002d72] text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition-colors"
+          onClick={() => navigate('/contact')}
+          >
             Book Consultations
           </button>
         </nav>
@@ -86,35 +90,35 @@ export default function Header() {
         <div className="md:hidden bg-gray-800 shadow-lg">
           <nav className="flex flex-col items-center space-y-4 py-4">
             <Link
-              to="#home"
+              to="/"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
-              to="#services"
+              to="/services"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
-              to="#about"
+              to="/about"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
-              to="#Testimonial"
+              to="/Testimonial"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonial
             </Link>
             <Link
-              to="#Faq"
+              to="/Faq"
               className="text-gray-300 hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -122,7 +126,7 @@ export default function Header() {
             </Link>
             <button
               className="bg-blue-500 text-gray-800 px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => navigate('/contact')}
             >
               Book Consultations
             </button>

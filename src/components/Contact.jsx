@@ -8,13 +8,19 @@ const ContactSection = () => {
   const infoRef = useRef(null);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Create an IntersectionObserver to observe when elements come into view
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) =>{
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Set visibility state for section container animation
+            if (entry.target === formRef.current || entry.target === infoRef.current) {
+              setIsVisible(true);
+            }
+            
             // Add animation classes when elements are in view
             if (entry.target === formRef.current) {
               entry.target.classList.add("animate-fade-in-left");
@@ -87,10 +93,13 @@ const ContactSection = () => {
   return (
     <section id="contact" className="bg-[#ffffff] rounded-lg py-20 px-4">
       <div className="section-container">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-center text-black">
+        <div className={`flex flex-col items-center mb-16 transform transition-all duration-700 ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        }`}>
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-3">
             Contact Us
           </h2>
+          <div className="h-1 w-24 bg-[#cdaa6d] mb-6 rounded-full"></div>
           <p className="section-description text-[#737373] mt-4 max-w-2xl mx-auto text-2xl">
             Have questions or feedback? We'd love to hear from you.
           </p>

@@ -1,31 +1,68 @@
 import { useEffect, useState, useRef } from 'react';
-import ServiceCard from './ServiceCard';
+import { FileText, Briefcase, FileCheck, BarChart2, ShieldCheck, Search } from "lucide-react";
 
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [services, setServices] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const sectionRef = useRef(null);
 
-  // Fetch services dynamically from an API
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await fetch('/api/services'); // Replace with your API endpoint
-        if (!response.ok) {
-          throw new Error('Failed to fetch services');
-        }
-        const data = await response.json();
-        setServices(data);
-      } catch (error) {
-        console.error('Error fetching services:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  // ServiceCard component defined inline
+  const ServiceCard = ({ title, description, icon }) => {
+    return (
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-100 h-full flex flex-col">
+        <div className="flex justify-center items-center bg-blue-50 rounded-full w-16 h-16 mx-auto mb-4 text-[#cdaa6d]">
+          {icon}
+        </div>
+        <div className="text-center flex-grow">
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-sm">
+            {description}
+          </p>
+        </div>
+      </div>
+    );
+  };
 
-    fetchServices();
-  }, []);
+  // Static services data
+  const services = [
+    {
+      icon: <FileText size={24} />,
+      title: "Tax Filing & Advisory",
+      description:
+        "Strategic tax planning and accurate filing for individuals and businesses to minimize liability and ensure compliance.",
+    },
+    {
+      icon: <Briefcase size={24} />,
+      title: "Company Registration",
+      description:
+        "Complete assistance with company formation, registration, and statutory compliance for startups and new entities.",
+    },
+    {
+      icon: <FileCheck size={24} />,
+      title: "Legal Documentation",
+      description:
+        "Professional preparation and review of legal documents including contracts, agreements, and corporate filings.",
+    },
+    {
+      icon: <BarChart2 size={24} />,
+      title: "Business Planning & Advisory",
+      description:
+        "Comprehensive business advisory services including strategy development, market analysis, and operational planning.",
+    },
+    {
+      icon: <ShieldCheck size={24} />,
+      title: "Compliance Services",
+      description:
+        "Ensuring your business meets all legal obligations and regulatory requirements across multiple jurisdictions.",
+    },
+    {
+      icon: <Search size={24} />,
+      title: "Tax Advisory & Audit Support",
+      description:
+        "Expert guidance on tax matters and support during audits to ensure compliance and minimize risks.",
+    },
+  ];
 
   // Intersection Observer for triggering animations
   useEffect(() => {
@@ -51,45 +88,40 @@ const ServicesSection = () => {
     <section
       id="services"
       ref={sectionRef}
-      className={`section-padding transition-opacity duration-700 ${
+      className={`py-16 md:py-24 transition-opacity duration-700 bg-gray-50 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900">
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-3">
             Our Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-[#cdaa6d] mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Comprehensive tax and legal solutions tailored to your needs
           </p>
         </div>
 
-        {/* Loading State */}
-        {isLoading ? (
-          <div className="text-center text-gray-500">Loading services...</div>
-        ) : services.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.id || index}
-                className={`transform transition-transform duration-500 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  icon={service.icon}
-                />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center text-gray-500">No services available at the moment.</div>
-        )}
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`transform transition-all duration-500 ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

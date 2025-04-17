@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         element: <Services/>
       },
       {
-        path: "/testimonials",
+        path: "/testimonial",
         element: <Testimonials/>,
       },
       {
