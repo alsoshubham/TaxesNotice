@@ -139,9 +139,16 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-600">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300">
-              © {currentYear}{" "}
+              © {currentYear}{""}
               <span className="font-semibold">TaxesNotice</span>. All rights
               reserved.
+            </p>
+            <p>
+              Designed and Developed by{" "}
+              <a
+                href="https://www.linkedin.com/in/alsoshubham"
+                className="text-gray-300 hover:text-white transition-colors">alsoshubham
+              </a>  
             </p>
             <nav
               className="flex space-x-6 mt-4 md:mt-0"
