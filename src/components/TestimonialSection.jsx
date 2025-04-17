@@ -108,7 +108,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-3">
             What Our Clients Say
           </h2>
           <div className="w-24 h-1 bg-[#cdaa6d] mx-auto mb-6"></div>
