@@ -66,16 +66,17 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
-              className="gradient-cta px-8 py-6 text-base"
+              className="bg-[#002d72] text-white px-6 py-4 text-base rounded-md hover:bg-[#003a8c] transition-transform transform hover:scale-105 shadow-lg"
               onClick={() => navigate('/contact')}
             >
               Book a Consultation
             </button>
             <button
-              className="outline-button px-8 py-6 text-base outline"
+              className="bg-[#002d72] text-white px-6 py-4 text-base rounded-md hover:bg-[#003a8c] transition-transform transform hover:scale-105 shadow-lg flex items-center justify-center"
               onClick={() => navigate('/services')}
             >
-              Explore Services <ArrowRight className="ml-2 h-4 w-4" />
+              <span>Explore Services</span>
+              <ArrowRight className="ml-2 h-4 w-4" />
             </button>
           </div>
           <Home/>

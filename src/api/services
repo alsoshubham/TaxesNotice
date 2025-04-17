@@ -1,4 +1,5 @@
-[
+{
+  "services": [
   {
     "icon": "tax-icon.png",
     "title": "Tax Filing & Advisory",
@@ -36,3 +37,4 @@
       "Expert guidance on tax matters and support during audits to ensure compliance and minimize risks."
   }
 ]
+}

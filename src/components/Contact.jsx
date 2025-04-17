@@ -88,7 +88,7 @@ const ContactSection = () => {
     <section id="contact" className="bg-[#ffffff] rounded-lg py-20 px-4">
       <div className="section-container">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-center text-blue-600">
+          <h2 className="text-4xl font-bold text-center text-black">
             Contact Us
           </h2>
           <p className="section-description text-[#737373] mt-4 max-w-2xl mx-auto text-2xl">
