@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { SiMedium } from "react-icons/si";
+import PrivacyPolicy from "../policies/PrivacyPolicy"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -156,10 +157,10 @@ const Footer = () => {
             >
               <Link
                 to="/privacy"
-                aria-label="Privacy Policy"
+                aria-label="/policies/policy"
                 className="text-gray-300 hover:text-white transition-colors"
               >
-                Privacy Policy
+                <Privacy Policy/>
               </Link>
               <Link
                 to="/terms"
