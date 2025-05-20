@@ -62,14 +62,14 @@ const TestimonialsSection = () => {
       rating: 5
     },
     {
-      name: "Ishita Kapoor",
+      name: "Adarsh Goyal",
       role: "Startup Founder",
       company: "Neenva Innovations",
       content: "The team at TaxesNation guided us through the company registration process with ease. Their attention to detail and proactive approach made a complex process simple.",
       rating: 5
     },
     {
-      name: "Chaitanya Sharma",
+      name: "Shubham",
       role: "Freelancer",
       company: "",
       content: "Filing taxes as a freelancer was always confusing until I found TaxesNation. They provided clarity and helped me claim deductions I didn't even know existed.",
