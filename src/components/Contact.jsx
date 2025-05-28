@@ -94,7 +94,8 @@ const Contact = () => {
               is here to help. Book a free consultation or reach out with your
               questions.
             </p>
-            <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded mr-4 transition-colors">
+            <div className="flex justify-center items-center space-x-4">
+              <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded mr-4 transition-colors">
               Book Free 15-Min Consultation
             </button>
             <button
@@ -107,6 +108,7 @@ const Contact = () => {
               <MessageCircle className="w-5 h-5 mr-2 inline" />
               WhatsApp Chat
             </button>
+            </div>
           </div>
         </section>
 

@@ -40,7 +40,7 @@ const Footer = () => {
   ];
 
   const handleCallClick = () => {
-    window.open("tel:+919876543210");
+    window.open("tel:+919540192363", "_blank");
   };
 
   const handleWhatsAppClick = () => {
@@ -206,6 +206,7 @@ const Footer = () => {
             <button
               onClick={handleWhatsAppClick}
               className="mt-6 flex items-center space-x-2 text-green-400 hover:text-green-500 transition-colors text-sm"
+              
             >
               <MessageCircle className="w-4 h-4" />
               <span>Chat on WhatsApp</span>
