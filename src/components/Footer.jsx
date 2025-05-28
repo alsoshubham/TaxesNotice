@@ -40,14 +40,14 @@ const Footer = () => {
   ];
 
   const handleCallClick = () => {
-    window.open("tel:+919540192363", "_blank");
+    window.open("tel:+919540192363");
   };
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(
       "Hi! I need help with tax and legal services. Can you assist me?"
     );
-    window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+    window.open(`https://wa.me/919540192363?text=${message}`, "_blank");
   };
 
   const handleSubscribe = () => {
@@ -94,7 +94,7 @@ const Footer = () => {
                   onClick={handleCallClick}
                   className="hover:text-white transition-colors"
                 >
-                  +91 98765 43210
+                  +91 9540 192 363
                 </button>
               </div>
               <div className="flex items-center space-x-3 text-sm">
