@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import { SiMedium } from "react-icons/si";
+import { SiLinkedin, SiMedium } from "react-icons/si";
 
 // Import components
 import About from './AboutSection';
@@ -57,18 +57,19 @@ const HeroSection = () => {
         ref={sectionRef}
         className="bg-gradient-to-b from-white via-blue-50 to-white"
       >
-        <div className="container mx-auto px-6 py-24 md:py-32 lg:py-40">
+        <div className="max-w-6xl mx-auto px-6 py-24">
           <div
             className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
               isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
             }`}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-              Expert Tax & Legal Solutions for Your Peace of Mind
+              Expert Tax & Legal Solutions for <span className="block bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                Individuals & Businesses
+                </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-              We simplify complex tax and legal matters with personalized
-              consultancy services for individuals and businesses.
+              From tax compliance to business setup, our expert team delivers results that matter for your financial future.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-5 mb-16">
@@ -102,6 +103,12 @@ const HeroSection = () => {
                 className="text-gray-500 hover:text-blue-900 transition-colors duration-300"
               >
                 <SiMedium size={24} />
+              </Link>
+              <Link
+                to="https://www.linkedin.com/company/taxesnotice/"
+                className="text-gray-500 hover:text-blue-900 transition-colors duration-300"
+              >
+                <SiLinkedin size={24} />
               </Link>
             </div>
           </div>

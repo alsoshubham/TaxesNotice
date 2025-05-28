@@ -1,309 +1,309 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
-import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify"; // Import toast
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import Header from "./Header";
+import { useEffect } from "react";
 
-const ContactSection = () => {
-  const formRef = useRef(null);
-  const infoRef = useRef(null);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+const Contact = () => {
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Phone",
+      details: ["+91 9540192363", "+91 9250765397"],
+      description: "Call us for immediate assistance",
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      details: ["hello@taxesnotice.com", "support@taxesnotice.com"],
+      description: "Send us your queries anytime",
+    },
+    {
+      icon: MapPin,
+      title: "Office",
+      details: ["Ranjit Nagar, Patel Nagar West, Delhi, New Delhi, Central Delhi- 110008"],
+      description: "Visit our office for consultation",
+    },
+    {
+      icon: Clock,
+      title: "Hours",
+      details: ["Mon - Fri: 9:00 AM - 7:00 PM", "Sat: 10:00 AM - 4:00 PM"],
+      description: "We're here when you need us",
+    },
+  ];
+
+  const serviceTypes = [
+    "Tax Filing & ITR",
+    "GST Services & Notice Handling",
+    "Startup Registrations",
+    "Legal Drafting & Contracts",
+    "One-on-One Consultation",
+    "Other",
+  ];
 
   useEffect(() => {
-    // Create an IntersectionObserver to observe when elements come into view
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Set visibility state for section container animation
-            if (entry.target === formRef.current || entry.target === infoRef.current) {
-              setIsVisible(true);
-            }
-            
-            // Add animation classes when elements are in view
-            if (entry.target === formRef.current) {
-              entry.target.classList.add("animate-fade-in-left");
-            } else if (entry.target === infoRef.current) {
-              entry.target.classList.add("animate-fade-in-right");
-            }
-            observer.unobserve(entry.target);
-          }
+    // Only run on client
+    if (typeof window !== "undefined" && window.google && window.google.maps) {
+      // Google Maps JS API must be loaded in index.html or via script tag elsewhere
+      const initMap = async () => {
+        const { Map } = await window.google.maps.importLibrary("maps");
+        new Map(document.getElementById("map"), {
+          center: { lat: 28.650572, lng: 77.156896 },
+          zoom: 15,
         });
-      },
-      { threshold: 0.2 }
-    );
-
-    const formElement = formRef.current;
-    const infoElement = infoRef.current;
-
-    // Observe the form and info elements
-    if (formElement) observer.observe(formElement);
-    if (infoElement) observer.observe(infoElement);
-
-    return () => {
-      // Clean up the observer when the component unmounts
-      if (formElement) observer.unobserve(formElement);
-      if (infoElement) observer.unobserve(infoElement);
-    };
+      };
+      initMap();
+    } else if (typeof window !== "undefined") {
+      // If Google Maps not loaded yet, set a global callback for when it is
+      window.initMap = async () => {
+        const { Map } = await window.google.maps.importLibrary("maps");
+        new Map(document.getElementById("map"), {
+          center: { lat: 28.650572, lng: 77.156896 },
+          zoom: 15,
+        });
+      };
+    }
   }, []);
 
-  const validateForm = (formData) => {
-    const errors = {};
-    if (!formData.get("name")) errors.name = "Name is required";
-    if (!formData.get("email")) errors.email = "Email is required";
-    if (!formData.get("subject")) errors.subject = "Subject is required";
-    if (!formData.get("message")) errors.message = "Message is required";
-    return errors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!formRef.current) return;
-
-    const formData = new FormData(e.target);
-    const errors = validateForm(formData);
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      return;
-    }
-
-    try {
-      setIsSubmitting(true);
-
-      await emailjs.sendForm(
-        "service_e3u1m9y", // Replace with your EmailJS service ID
-        "template_imhwvhl", // Replace with your EmailJS template ID
-        formRef.current,
-        "n2azYNJpXqz55Fjvi" // Replace with your EmailJS public key
-      );
-
-      toast.success("Message sent successfully!"); // Success toast
-      formRef.current.reset();
-      setFormErrors({});
-    } catch (error) {
-      console.error("Failed to send message:", error);
-      toast.error("Something went wrong. Please try again later."); // Error toast
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <section id="contact" className="bg-[#ffffff] rounded-lg py-20 px-4">
-      <div className="section-container">
-        <div className={`flex flex-col items-center mb-16 transform transition-all duration-700 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-3">
-            Contact Us
-          </h2>
-          <div className="h-1 w-24 bg-[#cdaa6d] mb-6 rounded-full"></div>
-          <p className="section-description text-[#737373] mt-4 max-w-2xl mx-auto text-2xl">
-            Have questions or feedback? We'd love to hear from you.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <Header />
 
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="space-y-6 rounded-2xl bg-white text-black p-8 shadow-sm"
-          >
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-14px font-medium text-[#0D0D0D] text-start"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  aria-label="Name"
-                  className="w-full rounded-lg border border-border bg-transparent px-4 py-2.5 text-foreground text-black transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                  placeholder="Your name"
-                  required
-                />
-                {formErrors.name && (
-                  <p className="text-red-500 text-sm">{formErrors.name}</p>
-                )}
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-14px font-medium text-[#0D0D0D] text-start"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  aria-label="Email"
-                  className="w-full rounded-lg border border-border bg-transparent px-4 py-2.5 text-foreground text-black transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                  placeholder="Your email"
-                  required
-                />
-                {formErrors.email && (
-                  <p className="text-red-500 text-sm">{formErrors.email}</p>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="subject"
-                className="mb-2 block text-14px font-medium text-[#0D0D0D] text-start"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                aria-label="Subject"
-                className="w-full rounded-lg border border-border bg-transparent px-4 py-2.5 text-foreground text-black transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                placeholder="Subject"
-                required
-              />
-              {formErrors.subject && (
-                <p className="text-red-500 text-sm">{formErrors.subject}</p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="mb-2 block text-14px font-medium text-[#0D0D0D] text-start"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                aria-label="Message"
-                rows={5}
-                className="w-full rounded-lg border border-border bg-transparent px-4 py-2.5 text-foreground text-black transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                placeholder="Your message"
-                required
-              ></textarea>
-              {formErrors.message && (
-                <p className="text-red-500 text-sm">{formErrors.message}</p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="w-full rounded-lg bg-primary px-5 py-3 text-center text-14px font-medium bg-[#002d72] text-white transition-colors hover:bg-primary/90"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Sending..." : "Send Message"}
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="py-16 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Get in Touch
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              Ready to simplify your tax and legal compliance? Our expert team
+              is here to help. Book a free consultation or reach out with your
+              questions.
+            </p>
+            <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded mr-4 transition-colors">
+              Book Free 15-Min Consultation
             </button>
-          </form>
+            <button
+              type="button"
+              className="border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 text-lg rounded transition-colors"
+              onClick={() =>
+                window.open("https://wa.me/919540192363", "_blank")
+              }
+            >
+              <MessageCircle className="w-5 h-5 mr-2 inline" />
+              WhatsApp Chat
+            </button>
+          </div>
+        </section>
 
-          <div ref={infoRef} className="space-y-8 lg:pl-8">
-            <div>
-              <h3 className="mb-2 block text-20px font-medium text-[#0D0D0D] text-start">
-                Get in Touch
-              </h3>
-              <p className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                We're here to answer your questions and provide assistance. Feel
-                free to reach out to us through any of the following methods.
-              </p>
+        {/* Contact Info Cards */}
+        <section className="py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {contactInfo.map((info, index) => (
+                <div
+                  key={index}
+                  className="text-center bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow"
+                >
+                  <info.icon className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {info.title}
+                  </h3>
+                  {info.details.map((detail, idx) => (
+                    <p key={idx} className="text-gray-800 font-medium">
+                      {detail}
+                    </p>
+                  ))}
+                  <p className="text-gray-600 text-sm mt-2">
+                    {info.description}
+                  </p>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
 
-            <div className="text-start space-y-6">
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[#0D0D0D] bg-[#E1E1E1] opacity 10.0% text-20px">
-                  <MapPin className="h-5 w-5 text-primary text-[#cdaa6d]" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
-                    Our Location
-                  </h4>
-                  <p className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    H.no. 8 1st Floor, Pvt 101, 102, Blk-C, Ranjit Nagar, Patel
-                    Nagar West, Delhi
-                    <br />
-                    New Delhi, Central Delhi- 110008
-                  </p>
+        {/* Contact Form & Map */}
+        <section className="py-16 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Send us a Message
+                </h2>
+                <div className="bg-white rounded-lg shadow">
+                  <div className="p-8">
+                    <form className="space-y-6">
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            First Name *
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Enter your first name"
+                            required
+                            className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Last Name *
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Enter your last name"
+                            required
+                            className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          required
+                          className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          placeholder="Enter your phone number"
+                          required
+                          className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Service Needed
+                        </label>
+                        <select
+                          className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
+                            Select a service
+                          </option>
+                          {serviceTypes.map((service, index) => (
+                            <option
+                              key={index}
+                              value={service.toLowerCase().replace(/\s+/g, "-")}
+                            >
+                              {service}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Message *
+                        </label>
+                        <textarea
+                          placeholder="Tell us about your requirements or questions..."
+                          rows={5}
+                          required
+                          className="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="w-full bg-[#002d72] hover:bg-blue-950 text-white py-3 rounded font-semibold transition-colors"
+                      >
+                        Send Message
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[#0D0D0D] bg-[#E1E1E1] opacity 10.0% text-20px">
-                  <Mail className="h-5 w-5 text-primary text-[#cdaa6d]" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
-                    Email Us
-                  </h4>
-                  <p className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    info@TaxesNotice.com
-                    <br />
-                    support@TaxesNotice.com
-                  </p>
-                </div>
-              </div>
+              {/* Map & Additional Info */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Visit Our Office
+                </h2>
 
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[#0D0D0D] bg-[#E1E1E1] opacity 10.0% text-20px">
-                  <Phone className="h-5 w-5 text-primary text-[#cdaa6d]" />
+                {/* Google Map Embed */}
+                <div className="bg-white rounded-lg shadow mb-8">
+                  <div className="p-0">
+                    <a
+                      href="https://www.google.com/maps?q=28.650572,77.156896"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Open in Google Maps"
+                      className="block h-64 rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <div id="map" className="w-full h-full" />
+                    </a>
+                  </div>
                 </div>
-                <div className="ml-4">
-                  <h4 className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
-                    Call Us
-                  </h4>
-                  <p className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    +91 9540192363
-                    <br />
-                    + 011-45053864
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            <div>
-              <h3 className="mb-2 block text-20px font-medium text-[#0D0D0D] text-start">
-                Business Hours
-              </h3>
-              <div className="mt-4 space-y-2">
-                <div className="flex justify-between">
-                  <span className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    Monday - Friday
-                  </span>
-                  <span className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
-                    9:00 AM - 6:00 PM
-                  </span>
+                <div className="bg-white rounded-lg shadow">
+                  <div className="p-6 space-y-4">
+                    <button
+                      type="button"
+                      className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded font-semibold flex items-center justify-center transition-colors"
+                      onClick={() => window.open("tel:+919540192363", "_blank")}
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Call Now: +91 9540 192 363
+                    </button>
+
+                    <button
+                      type="button"
+                      className="w-full border border-green-600 text-green-600 hover:bg-green-600 hover:text-white py-2 rounded font-semibold flex items-center justify-center transition-colors"
+                      onClick={() =>
+                        window.open("https://wa.me/919540192363", "_blank")
+                      }
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Chat on WhatsApp
+                    </button>
+
+                    <button
+                      type="button"
+                      className="w-full border border-gray-300 text-gray-700 hover:bg-gray-100 py-2 rounded font-semibold flex items-center justify-center transition-colors"
+                      onClick={() =>
+                        window.open("mailto:hello@taxesnotice.com")
+                      }
+                    >
+                      <Mail className="w-4 h-4 mr-2" />
+                      Email Us
+                    </button>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    Saturday
-                  </span>
-                  <span className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
-                    10:00 AM - 4:00 PM
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="mt-2 text-[#737373] text-16px text-start text-muted-foreground">
-                    Sunday
-                  </span>
-                  <span className="mb-2 block text-16px font-medium text-[#0D0D0D] text-start">
-                    Closed
-                  </span>
+
+                {/* Response Time */}
+                <div className="bg-white rounded-lg shadow mt-6">
+                  <div className="p-6 text-center">
+                    <Clock className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Quick Response Guarantee
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      We respond to all inquiries within 2 hours during business
+                      hours.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+    </div>
   );
 };
-
-export default ContactSection;
+export default Contact;

@@ -58,21 +58,21 @@ const TestimonialsSection = () => {
       name: "Harsh Aggarwal",
       role: "CEO",
       company: "Techkareer",
-      content: "TaxesNation helped us optimize our tax strategy and saved us thousands. Their expertise in corporate tax law is exceptional.",
+      content: "Taxesnotice helped us optimize our tax strategy and saved us thousands. Their expertise in corporate tax law is exceptional.",
       rating: 5
     },
     {
       name: "Adarsh Goyal",
       role: "Startup Founder",
-      company: "Neenva Innovations",
-      content: "The team at TaxesNation guided us through the company registration process with ease. Their attention to detail and proactive approach made a complex process simple.",
+      company: "Saarthi",
+      content: "The team at Taxesnotice guided us through the company registration process with ease. Their attention to detail and proactive approach made a complex process simple.",
       rating: 5
     },
     {
       name: "Shubham",
       role: "Freelancer",
       company: "",
-      content: "Filing taxes as a freelancer was always confusing until I found TaxesNation. They provided clarity and helped me claim deductions I didn't even know existed.",
+      content: "Filing taxes as a freelancer was always confusing until I found Taxesnotice. They provided clarity and helped me claim deductions I didn't even know existed.",
       rating: 4
     }
   ];

@@ -64,6 +64,13 @@ const ServicesSection = () => {
     },
   ];
 
+  const process = [
+    { step: "01", title: "Consultation", desc: "Free 15-minute consultation to understand your needs" },
+    { step: "02", title: "Documentation", desc: "Secure document collection with digital verification" },
+    { step: "03", title: "Processing", desc: "Expert handling with real-time progress updates" },
+    { step: "04", title: "Delivery", desc: "Timely completion with comprehensive support" }
+  ];
+
   // Intersection Observer for triggering animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -123,6 +130,31 @@ const ServicesSection = () => {
           ))}
         </div>
       </div>
+      <section className="py-24 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">How we work</h2>
+              <p className="text-xl text-gray-600">Simple, transparent process from start to finish</p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-8">
+              {process.map((item, index) => (
+                <div key={index} className="text-center group">
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 bg-[#002d72] text-white rounded-2xl flex items-center justify-center text-xl font-bold mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                      {item.step}
+                    </div>
+                    {index < process.length - 1 && (
+                      <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gray-200 -translate-x-8" />
+                    )}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
     </section>
   );
 };
