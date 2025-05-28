@@ -75,7 +75,6 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10">
-              {/* Reduced mb-16 to mb-10 */}
               <button
                 className="bg-blue-900 text-white px-8 py-4 text-lg font-medium rounded-lg hover:bg-blue-800 transition duration-300 ease-in-out shadow-lg flex items-center justify-center"
                 onClick={() => navigate('/contact')}
@@ -93,9 +92,6 @@ const HeroSection = () => {
             
             <div className="flex justify-center space-x-6 mb-10">
               {/* Reduced mb-20 to mb-10 */}
-              <Link to="#" className="text-gray-500 hover:text-blue-900 transition-colors duration-300">
-                <FaFacebook size={24} />
-              </Link>
               <Link to="#" className="text-gray-500 hover:text-blue-900 transition-colors duration-300">
                 <FaTwitter size={24} />
               </Link>

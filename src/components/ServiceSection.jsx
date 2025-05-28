@@ -111,25 +111,56 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`transform transition-all duration-500 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <ServiceCard
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-              />
+        {/* Services Carousel for Mobile, Grid for Desktop */}
+        <div>
+          {/* Mobile Carousel */}
+          <div className="block sm:hidden">
+            <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-4 px-4 space-x-4">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`min-w-[85vw] max-w-xs flex-shrink-0 snap-center transform transition-all duration-500 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <ServiceCard
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+            {/* Pagination dots */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {services.map((_, idx) => (
+                <span key={idx} className="w-2 h-2 bg-gray-300 rounded-full inline-block"></span>
+              ))}
+            </div>
+          </div>
+          {/* Desktop Grid */}
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className={`transform transition-all duration-500 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Process Section */}
       <section className="py-24 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">

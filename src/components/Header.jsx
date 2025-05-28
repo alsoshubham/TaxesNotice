@@ -25,57 +25,59 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed bg-gradient-to-r bg-[#002d72] w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-gray-800 shadow-lg py-3" : "bg-[#002D72] py-5"
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "py-3" : "py-5"
       }`}
       style={{
-        background:
-          "linear-gradient(90deg, #002d72 60%, #003366 100%)",
+        background: isScrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.7)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        boxShadow: isScrolled ? "0 2px 12px 0 rgba(0,0,0,0.04)" : "none"
       }}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
+      <div className="logo container mx-auto flex items-center justify-between px-4 md:px-8">
         <Link
           to="/"
-          className="text-3xl font-extrabold text-white tracking-tight"
+          className="text-black text-xl font-sans-bold fontweight-bold"
         >
           TaxesNotice
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-8 bg-white/60 backdrop-blur-md rounded-full px-6 py-2 shadow-md">
           <Link
             to="/"
-            className="text-gray-200 hover:text-white transition-colors font-medium px-2"
+            className="text-black hover:text-blue-900 transition-colors font-medium px-2"
           >
             Home
           </Link>
           <Link
             to="/services"
-            className="text-gray-200 hover:text-white transition-colors font-medium px-2"
+            className="text-black hover:text-blue-900 transition-colors font-medium px-2"
           >
             Services
           </Link>
           <Link
             to="/about"
-            className="text-gray-200 hover:text-white transition-colors font-medium px-2"
+            className="text-black hover:text-blue-900 transition-colors font-medium px-2"
           >
             About
           </Link>
           <Link
             to="/Testimonial"
-            className="text-gray-200 hover:text-white transition-colors font-medium px-2"
+            className="text-black hover:text-blue-900 transition-colors font-medium px-2"
           >
             Testimonial
           </Link>
           <Link
             to="/Faq"
-            className="text-gray-200 hover:text-white transition-colors font-medium px-2"
+            className="text-black hover:text-blue-900 transition-colors font-medium px-2"
           >
             FAQ
           </Link>
         </nav>
         <button
-          className="hidden md:flex items-center gap-2 bg-[#002d72] text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors shadow-md ml-6"
+          className="hidden md:flex items-center gap-2 bg-[#327ae437] backdrop-blur-md rounded-full px-6 py-2 shadow-md text-black font-semibold hover:bg-white/80 hover:text-blue-900 transition-colors ml-6"
           onClick={() => window.open("tel:+919540192363", "_blank")}
         >
           <Phone className="w-4 h-4" />
@@ -88,7 +90,7 @@ export default function Header() {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-gray-200 focus:outline-none p-2"
+            className="text-gray-800 focus:outline-none p-2"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg
@@ -115,45 +117,45 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gray-800 shadow-lg">
+        <div className="md:hidden bg-white/80 backdrop-blur-md rounded-2xl mx-2 mt-2 shadow-lg">
           <nav className="flex flex-col items-center space-y-3 py-4 px-4">
             <Link
               to="/"
-              className="w-full text-center text-gray-200 hover:text-white transition-colors font-medium py-1"
+              className="w-full text-center text-black hover:text-blue-900 transition-colors font-medium py-1"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               to="/services"
-              className="w-full text-center text-gray-200 hover:text-white transition-colors font-medium py-1"
+              className="w-full text-center text-black hover:text-blue-900 transition-colors font-medium py-1"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               to="/about"
-              className="w-full text-center text-gray-200 hover:text-white transition-colors font-medium py-1"
+              className="w-full text-center text-black hover:text-blue-900 transition-colors font-medium py-1"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
               to="/Testimonial"
-              className="w-full text-center text-gray-200 hover:text-white transition-colors font-medium py-1"
+              className="w-full text-center text-black hover:text-blue-900 transition-colors font-medium py-1"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonial
             </Link>
             <Link
               to="/Faq"
-              className="w-full text-center text-gray-200 hover:text-white transition-colors font-medium py-1"
+              className="w-full text-center text-black hover:text-blue-900 transition-colors font-medium py-1"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </Link>
             <button
-              className="w-full mt-2 flex items-center justify-center gap-2 bg-[#002d72] text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors shadow-md"
+              className="w-full mt-2 flex items-center justify-center gap-2 bg-white/60 backdrop-blur-md rounded-full px-6 py-2 shadow-md text-black font-semibold hover:bg-white/80 hover:text-blue-900 transition-colors"
               onClick={() => window.open("tel:+919540192363", "_blank")}
             >
               <Phone className="w-4 h-4" />

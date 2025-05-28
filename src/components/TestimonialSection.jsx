@@ -117,35 +117,70 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.length > 0 ? (
-            testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="transition-all duration-500"
-                style={{
-                  transitionDelay: `${index * 150}ms`,
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
-                }}
-                aria-label={`Testimonial from ${testimonial.name}`}
-              >
-                <TestimonialCard
-                  name={testimonial.name}
-                  role={testimonial.role}
-                  company={testimonial.company}
-                  content={testimonial.content}
-                  rating={testimonial.rating}
-                  image={testimonial.image}
-                />
-              </div>
-            ))
-          ) : (
-            <div className="col-span-full text-center text-gray-500">
-              No testimonials available at the moment.
+        {/* Testimonials Carousel for Mobile, Grid for Desktop */}
+        <div>
+          {/* Mobile Carousel */}
+          <div className="block md:hidden">
+            <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-4 px-4 space-x-4">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className={`min-w-[85vw] max-w-xs flex-shrink-0 snap-center transition-all duration-500`}
+                  style={{
+                    transitionDelay: `${index * 150}ms`,
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
+                  }}
+                  aria-label={`Testimonial from ${testimonial.name}`}
+                >
+                  <TestimonialCard
+                    name={testimonial.name}
+                    role={testimonial.role}
+                    company={testimonial.company}
+                    content={testimonial.content}
+                    rating={testimonial.rating}
+                    image={testimonial.image}
+                  />
+                </div>
+              ))}
             </div>
-          )}
+            {/* Pagination dots */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {testimonials.map((_, idx) => (
+                <span key={idx} className="w-2 h-2 bg-gray-300 rounded-full inline-block"></span>
+              ))}
+            </div>
+          </div>
+          {/* Desktop Grid */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.length > 0 ? (
+              testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="transition-all duration-500"
+                  style={{
+                    transitionDelay: `${index * 150}ms`,
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
+                  }}
+                  aria-label={`Testimonial from ${testimonial.name}`}
+                >
+                  <TestimonialCard
+                    name={testimonial.name}
+                    role={testimonial.role}
+                    company={testimonial.company}
+                    content={testimonial.content}
+                    rating={testimonial.rating}
+                    image={testimonial.image}
+                  />
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center text-gray-500">
+                No testimonials available at the moment.
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

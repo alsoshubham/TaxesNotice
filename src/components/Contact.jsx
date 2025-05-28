@@ -94,8 +94,7 @@ const Contact = () => {
               is here to help. Book a free consultation or reach out with your
               questions.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10">
-              <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded mr-4 transition-colors">
+            <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded transition-colors mb-4">
               Book Free 15-Min Consultation
             </button>
             <button
@@ -105,10 +104,9 @@ const Contact = () => {
                 window.open("https://wa.me/919540192363", "_blank")
               }
             >
-              <MessageCircle className="w-5 h-5 mr-2 inline" />
+              <MessageCircle className="w-5 h-5 mr-2 inline animate-bounce" />
               WhatsApp Chat
             </button>
-            </div>
           </div>
         </section>
 
@@ -252,53 +250,52 @@ const Contact = () => {
                 </h2>
 
                 {/* Google Map Embed */}
-                <div className="bg-white rounded-lg shadow mb-8">
-                  <div
-                    className="rounded-lg overflow-hidden w-full h-64 border border-gray-200"
-                    style={{
-                      minHeight: "16rem",
-                      minWidth: "100%",
-                      boxShadow: "0 4px 24px 0 rgba(0,0,0,0.07)",
-                      position: "relative",
-                    }}
-                  >
-                    {!mapError ? (
-                      <div
-                        ref={mapRef}
-                        id="map"
-                        className="w-full h-full"
-                        style={{
-                          height: "100%",
-                          width: "100%",
-                          borderRadius: "0.5rem",
-                          minHeight: "16rem",
-                          minWidth: "100%",
-                          background: "#f3f4f6",
+                <div className="bg-white rounded-lg shadow mb-8 flex items-center justify-center min-h-64 relative">
+                  {!mapError ? (
+                    <div
+                      ref={mapRef}
+                      id="map"
+                      className="w-full h-full animate-pulse"
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        borderRadius: "0.5rem",
+                        minHeight: "16rem",
+                        minWidth: "100%",
+                        background: "#f3f4f6 url('https://i.imgur.com/llF5iyg.gif') center center no-repeat",
+                        backgroundSize: "60px 60px"
+                      }}
+                    />
+                  ) : (
+                    <a
+                      href="https://www.google.com/maps?q=28.650572,77.156896"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
+                      title="Open in Google Maps"
+                    >
+                      <img
+                        src="https://maps.googleapis.com/maps/api/staticmap?center=28.650572,77.156896&zoom=15&size=600x256&maptype=roadmap&markers=color:red%7C28.650572,77.156896&key=YOUR_API_KEY"
+                        alt="Office Location Map"
+                        className="w-full h-full object-cover"
+                        style={{ minHeight: "16rem", borderRadius: "0.5rem" }}
+                        onError={e => {
+                          e.target.onerror = null;
+                          e.target.style.display = "none";
                         }}
                       />
-                    ) : (
-                      <a
-                        href="https://www.google.com/maps?q=28.650572,77.156896"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full h-full"
-                        title="Open in Google Maps"
-                      >
-                        <img
-                          src="https://maps.googleapis.com/maps/api/staticmap?center=28.650572,77.156896&zoom=15&size=600x256&maptype=roadmap&markers=color:red%7C28.650572,77.156896&key=YOUR_API_KEY"
-                          alt="Office Location Map"
-                          className="w-full h-full object-cover"
-                          style={{ minHeight: "16rem", borderRadius: "0.5rem" }}
-                          onError={e => {
-                            e.target.onerror = null;
-                            e.target.style.display = "none";
-                          }}
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 text-gray-700 font-semibold">
-                          Unable to load interactive map. Click to view on Google Maps.
-                        </div>
-                      </a>
-                    )}
+                      <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 text-gray-700 font-semibold">
+                        Unable to load interactive map. Click to view on Google Maps.
+                      </div>
+                    </a>
+                  )}
+                  {/* Visual interest: animated pin */}
+                  <div className="absolute left-1/2 top-8 -translate-x-1/2 z-10">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+                      <circle cx="16" cy="12" r="8" fill="#3b82f6" fillOpacity="0.7" />
+                      <circle cx="16" cy="12" r="4" fill="#a855f7" />
+                      <rect x="14" y="20" width="4" height="8" rx="2" fill="#3b82f6" />
+                    </svg>
                   </div>
                 </div>
 
