@@ -55,7 +55,7 @@ const HeroSection = () => {
     <>
       <div
         ref={sectionRef}
-        className="bg-gradient-to-b from-white via-blue-50 to-white"
+        className="overflow-y-hidden" // Added to stop vertical overflow
       >
         <div className="max-w-6xl mx-auto px-6 py-24">
           <div
@@ -63,16 +63,19 @@ const HeroSection = () => {
               isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
             }`}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              {/* Reduced mb-8 to mb-6 */}
               Expert Tax & Legal Solutions for <span className="block bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
                 Individuals & Businesses
                 </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              {/* Reduced mb-12 to mb-8 */}
               From tax compliance to business setup, our expert team delivers results that matter for your financial future.
             </p>
             
-            <div className="flex flex-col sm:flex-row justify-center gap-5 mb-16">
+            <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10">
+              {/* Reduced mb-16 to mb-10 */}
               <button
                 className="bg-blue-900 text-white px-8 py-4 text-lg font-medium rounded-lg hover:bg-blue-800 transition duration-300 ease-in-out shadow-lg flex items-center justify-center"
                 onClick={() => navigate('/contact')}
@@ -88,7 +91,8 @@ const HeroSection = () => {
               </button>
             </div>
             
-            <div className="flex justify-center space-x-6 mb-20">
+            <div className="flex justify-center space-x-6 mb-10">
+              {/* Reduced mb-20 to mb-10 */}
               <Link to="#" className="text-gray-500 hover:text-blue-900 transition-colors duration-300">
                 <FaFacebook size={24} />
               </Link>
@@ -114,7 +118,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
       <Home />
     </>
   );
