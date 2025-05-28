@@ -94,7 +94,7 @@ const Contact = () => {
               is here to help. Book a free consultation or reach out with your
               questions.
             </p>
-            <div className="flex justify-center items-center space-x-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-5 mb-10">
               <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded mr-4 transition-colors">
               Book Free 15-Min Consultation
             </button>
