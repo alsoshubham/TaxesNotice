@@ -1,6 +1,6 @@
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import Header from "./Header";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Contact = () => {
   const contactInfo = [
@@ -39,27 +39,42 @@ const Contact = () => {
     "Other",
   ];
 
+  const mapRef = useRef(null);
+  const [mapError, setMapError] = useState(false);
+
   useEffect(() => {
-    // Only run on client
-    if (typeof window !== "undefined" && window.google && window.google.maps) {
-      // Google Maps JS API must be loaded in index.html or via script tag elsewhere
-      const initMap = async () => {
-        const { Map } = await window.google.maps.importLibrary("maps");
-        new Map(document.getElementById("map"), {
-          center: { lat: 28.650572, lng: 77.156896 },
-          zoom: 15,
-        });
-      };
-      initMap();
-    } else if (typeof window !== "undefined") {
-      // If Google Maps not loaded yet, set a global callback for when it is
-      window.initMap = async () => {
-        const { Map } = await window.google.maps.importLibrary("maps");
-        new Map(document.getElementById("map"), {
-          center: { lat: 28.650572, lng: 77.156896 },
-          zoom: 15,
-        });
-      };
+    if (typeof window !== "undefined") {
+      const mapDiv = mapRef.current;
+      if (window.google && window.google.maps && mapDiv) {
+        const initMap = async () => {
+          try {
+            const { Map } = await window.google.maps.importLibrary("maps");
+            new Map(mapDiv, {
+              center: { lat: 28.650572, lng: 77.156896 },
+              zoom: 15,
+            });
+          } catch {
+            setMapError(true);
+          }
+        };
+        initMap();
+      } else {
+        window.initMap = async () => {
+          const mapDiv = mapRef.current;
+          if (!mapDiv) return;
+          try {
+            const { Map } = await window.google.maps.importLibrary("maps");
+            new Map(mapDiv, {
+              center: { lat: 28.650572, lng: 77.156896 },
+              zoom: 15,
+            });
+          } catch {
+            setMapError(true);
+          }
+        };
+        // Optionally, set a timeout to show fallback if map doesn't load
+        setTimeout(() => setMapError(true), 5000);
+      }
     }
   }, []);
 
@@ -236,17 +251,52 @@ const Contact = () => {
 
                 {/* Google Map Embed */}
                 <div className="bg-white rounded-lg shadow mb-8">
-                  <div className="p-0">
-                    <a
-                      href="https://www.google.com/maps?q=28.650572,77.156896"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Open in Google Maps"
-                      className="block h-64 rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      style={{ cursor: "pointer" }}
-                    >
-                      <div id="map" className="w-full h-full" />
-                    </a>
+                  <div
+                    className="rounded-lg overflow-hidden w-full h-64 border border-gray-200"
+                    style={{
+                      minHeight: "16rem",
+                      minWidth: "100%",
+                      boxShadow: "0 4px 24px 0 rgba(0,0,0,0.07)",
+                      position: "relative",
+                    }}
+                  >
+                    {!mapError ? (
+                      <div
+                        ref={mapRef}
+                        id="map"
+                        className="w-full h-full"
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          borderRadius: "0.5rem",
+                          minHeight: "16rem",
+                          minWidth: "100%",
+                          background: "#f3f4f6",
+                        }}
+                      />
+                    ) : (
+                      <a
+                        href="https://www.google.com/maps?q=28.650572,77.156896"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full h-full"
+                        title="Open in Google Maps"
+                      >
+                        <img
+                          src="https://maps.googleapis.com/maps/api/staticmap?center=28.650572,77.156896&zoom=15&size=600x256&maptype=roadmap&markers=color:red%7C28.650572,77.156896&key=YOUR_API_KEY"
+                          alt="Office Location Map"
+                          className="w-full h-full object-cover"
+                          style={{ minHeight: "16rem", borderRadius: "0.5rem" }}
+                          onError={e => {
+                            e.target.onerror = null;
+                            e.target.style.display = "none";
+                          }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 text-gray-700 font-semibold">
+                          Unable to load interactive map. Click to view on Google Maps.
+                        </div>
+                      </a>
+                    )}
                   </div>
                 </div>
 
