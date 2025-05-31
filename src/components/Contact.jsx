@@ -94,19 +94,6 @@ const Contact = () => {
               is here to help. Book a free consultation or reach out with your
               questions.
             </p>
-            <button className="bg-[#002d72] hover:cursor-pointer text-white px-8 py-3 text-lg rounded transition-colors mb-4">
-              Book Free 15-Min Consultation
-            </button>
-            <button
-              type="button"
-              className="border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 text-lg rounded transition-colors"
-              onClick={() =>
-                window.open("https://wa.me/919540192363", "_blank")
-              }
-            >
-              <MessageCircle className="w-5 h-5 mr-2 inline animate-bounce" />
-              WhatsApp Chat
-            </button>
           </div>
         </section>
 
