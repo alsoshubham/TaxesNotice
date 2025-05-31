@@ -112,23 +112,20 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex space-x-4">
-              <Link to="#" className="text-gray-400 hover:text-white">
-                <FaFacebook size={24} />
+              <Link to="#" className="text-gray-400 hover:text-white" aria-label="Facebook">
+                <FaFacebook size={24} alt="Facebook" />
               </Link>
-              <Link to="#" className="text-gray-400 hover:text-white">
-                <FaTwitter size={24} />
+              <Link to="#" className="text-gray-400 hover:text-white" aria-label="Twitter">
+                <FaTwitter size={24} alt="Twitter" />
               </Link>
-              <Link to="#" className="text-gray-400 hover:text-white">
-                <FaInstagram size={24} />
+              <Link to="#" className="text-gray-400 hover:text-white" aria-label="Instagram">
+                <FaInstagram size={24} alt="Instagram" />
               </Link>
-              <Link
-                to="https://medium.com/@taxesnotice"
-                className="text-gray-400 hover:text-white"
-              >
-                <SiMedium size={24} />
+              <Link to="https://medium.com/@taxesnotice" className="text-gray-400 hover:text-white" aria-label="Medium">
+                <SiMedium size={24} alt="Medium" />
               </Link>
-              <Link to="https://www.linkedin.com/company/taxesnotice/" className="text-gray-400 hover:text-white">
-                <SiLinkedin size={24} />
+              <Link to="https://www.linkedin.com/company/taxesnotice/" className="text-gray-400 hover:text-white" aria-label="LinkedIn">
+                <SiLinkedin size={24} alt="LinkedIn" />
               </Link>
             </div>
           </div>
@@ -252,6 +249,20 @@ const Footer = () => {
         draggable
         pauseOnHover
       />
+      {/* Tawk.to Live Chat Widget */}
+      <script type="text/javascript">
+        {`
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/your_property_id/1hxxxxxxx'; // Replace with your Tawk.to property ID
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+          })();
+        `}
+      </script>
     </footer>
   );
 };

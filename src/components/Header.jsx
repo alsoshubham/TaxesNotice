@@ -75,6 +75,12 @@ export default function Header() {
           >
             FAQ
           </Link>
+          <Link
+            to="/resources"
+            className="text-black hover:text-blue-900 transition-colors font-medium px-2"
+          >
+            Resources
+          </Link>
         </nav>
         <button
           className="hidden md:flex items-center gap-2 bg-[#327ae437] backdrop-blur-md rounded-full px-6 py-2 shadow-md text-black font-semibold hover:bg-white/80 hover:text-blue-900 transition-colors ml-6"
@@ -153,6 +159,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
+            </Link>
+            <Link
+              to="/resources"
+              className="w-full text-center text-black hover:text-blue-900 transition-colors font-medium py-1"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Resources
             </Link>
             <button
               className="w-full mt-2 flex items-center justify-center gap-2 bg-white/60 backdrop-blur-md rounded-full px-6 py-2 shadow-md text-black font-semibold hover:bg-white/80 hover:text-blue-900 transition-colors"

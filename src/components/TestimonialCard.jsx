@@ -28,9 +28,8 @@ const TestimonialCard = ({ name, role, company, content, rating, image }) => {
             {image ? (
               <img
                 src={image}
-                alt={`Profile picture of ${name}`}
-                className="h-full w-full object-cover"
-                aria-label={`Profile picture of ${name}`}
+                alt={`Photo of ${name}`}
+                className="h-12 w-12 rounded-full object-cover"
               />
             ) : (
               <div

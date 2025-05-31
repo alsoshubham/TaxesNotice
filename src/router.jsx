@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import PrivacyPolicy from "./policies/PrivacyPolicy";
 import TermsOfServices from "./policies/TermsOfServices";
 import HeroSection from "./components/HeroSection";
+import ResourceCenter from "./pages/ResourceCenter";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             element: <TermsOfServices/>,
           }
         ]
+      },
+      {
+        path: "/resources",
+        element: <ResourceCenter />
       }
     ],
   },
