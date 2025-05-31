@@ -82,7 +82,7 @@ export default function Header() {
         >
           <Phone className="w-4 h-4" />
           <span className="font-semibold tracking-wide">
-            +91 9540 192 363
+            Contact Us
           </span>
         </button>
 
