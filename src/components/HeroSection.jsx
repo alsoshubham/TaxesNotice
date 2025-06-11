@@ -57,7 +57,7 @@ const HeroSection = () => {
         ref={sectionRef}
         className="overflow-y-hidden" // Added to stop vertical overflow
       >
-        <div className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-6xl mx-auto px-6 py-12">
           <div
             className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
               isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'

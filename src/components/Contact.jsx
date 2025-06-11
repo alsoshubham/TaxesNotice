@@ -80,8 +80,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <Header />
-
       <main className="pt-20">
         {/* Hero Section */}
         <section className="px-4">
