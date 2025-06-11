@@ -65,7 +65,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className={`about-section py-20 bg-gradient-to-b from-white to-gray-50 transition-opacity duration-700 ${
+      className={`py-12 about-section bg-gradient-to-b from-white to-gray-50 transition-opacity duration-700 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >

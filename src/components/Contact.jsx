@@ -84,7 +84,7 @@ const Contact = () => {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 px-4">
+        <section className="px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Get in Touch
@@ -98,7 +98,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Info Cards */}
-        <section className="py-16 px-4">
+        <section className=" px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
@@ -125,7 +125,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Form & Map */}
-        <section className="py-16 px-4 bg-white">
+        <section className="pb-4 px-4 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
@@ -262,8 +262,12 @@ const Contact = () => {
                       title="Open in Google Maps"
                     >
                       <img
-                        src="https://maps.googleapis.com/maps/api/staticmap?center=28.650572,77.156896&zoom=15&size=600x256&maptype=roadmap&markers=color:red%7C28.650572,77.156896&key=YOUR_API_KEY"
+                        // src="https://maps.googleapis.com/maps/api/staticmap?center=28.650572,77.156896&zoom=15&size=600x256&maptype=roadmap&markers=color:red%7C28.650572,77.156896&key=AIzaSyAUi87p0TgbVMUDbLwQx1ktAi8IEoIfS3E"
+                        
+                        src="./map.jpg"
                         alt="Office Location Map"
+                        width="500"
+                        height="256"
                         className="w-full h-full object-cover"
                         style={{ minHeight: "16rem", borderRadius: "0.5rem" }}
                         onError={e => {
@@ -271,19 +275,12 @@ const Contact = () => {
                           e.target.style.display = "none";
                         }}
                       />
-                      <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 text-gray-700 font-semibold">
+                      {/* <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 text-gray-700 font-semibold">
                         Unable to load interactive map. Click to view on Google Maps.
-                      </div>
+                      </div> */}
                     </a>
                   )}
-                  {/* Visual interest: animated pin */}
-                  <div className="absolute left-1/2 top-8 -translate-x-1/2 z-10">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
-                      <circle cx="16" cy="12" r="8" fill="#3b82f6" fillOpacity="0.7" />
-                      <circle cx="16" cy="12" r="4" fill="#a855f7" />
-                      <rect x="14" y="20" width="4" height="8" rx="2" fill="#3b82f6" />
-                    </svg>
-                  </div>
+                  
                 </div>
 
                 <div className="bg-white rounded-lg shadow">

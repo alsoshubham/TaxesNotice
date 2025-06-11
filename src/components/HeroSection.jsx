@@ -65,9 +65,7 @@ const HeroSection = () => {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               {/* Reduced mb-8 to mb-6 */}
-              Expert Tax & Legal Solutions for <span className="block bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                Individuals & Businesses
-                </span>
+              Expert Tax & Legal Solutions for <br/> Individuals & Businesses
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               {/* Reduced mb-12 to mb-8 */}

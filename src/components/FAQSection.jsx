@@ -85,7 +85,7 @@ const FAQSection = () => {
     <section
       id="faq"
       ref={sectionRef}
-      className={`py-20 max-w-screen bg-[#ffffff] transition-all duration-1000 ${
+      className={`pb-10 max-w-screen bg-[#ffffff] transition-all duration-1000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >

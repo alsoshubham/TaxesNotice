@@ -95,7 +95,7 @@ const ServicesSection = () => {
     <section
       id="services"
       ref={sectionRef}
-      className={`py-16 md:py-24 transition-opacity duration-700 bg-gray-50 ${
+      className={` transition-opacity duration-700 bg-gray-50 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
@@ -161,7 +161,7 @@ const ServicesSection = () => {
       </div>
 
       {/* Process Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">How we work</h2>
