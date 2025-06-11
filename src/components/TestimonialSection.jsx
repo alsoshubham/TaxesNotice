@@ -101,7 +101,7 @@ const TestimonialsSection = () => {
     <section
       id="testimonials"
       ref={sectionRef}
-      className={`py-16 md:py-24 bg-gray-50 transition-all duration-700 ${
+      className={`py-8 bg-gray-50 transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >

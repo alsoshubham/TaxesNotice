@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`sticky w-full z-50 transition-all duration-300 ${
         isScrolled ? "py-3" : "py-5"
       }`}
       style={{
